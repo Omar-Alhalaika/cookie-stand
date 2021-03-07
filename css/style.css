@@ -1,0 +1,55 @@
+#img-logo{
+    height: 70px;
+    width: 150px;
+    /* border-radius: 75px; */
+}
+body{
+    background-image: url(https://healingthebody.ca/wp-content/uploads/2013/03/Fotolia_76905204_Subscription_Monthly_XXL.jpg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #85E7F2;
+    
+}
+
+.liNav{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    font-weight: bolder;
+    color: #0D0D0D;
+    display: block;
+    padding: 25px;
+    text-decoration: none;
+    position: relative;
+    float: left;
+
+}
+a{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    color: #0D0D0D;
+    text-decoration: none;
+    display: block;
+
+}
+main{
+    position: relative;
+    padding: 150px;
+}
+#Seattle>p ,#tokyo>p, #dubai>p, #paris>p, #lima>p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 35px;
+    font-weight: bolder;
+    padding: 25px;
+    
+}
+#Seattle>li ,#tokyo>li, #dubai>li, #paris>li, #lima>li{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 5px;
+    list-style: disc;
+}
+main>ul{
+    display: inline;
+}
