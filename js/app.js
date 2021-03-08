@@ -47,3 +47,17 @@ let dubai = new Branch('dubai', 11, 38, 3.7);
 let paris = new Branch('paris', 20, 38, 2.3);
 // ----------------------------------------------------- Lima Branch -------------------------------------------------------------
 let lima = new Branch('lima', 2, 16, 4.6);
+
+let header=document.getElementById('table');
+let table=document.createElement('table');
+let tr=document.createElement('tr');
+let headerFun =function () {
+    for (let i = 0; i < Branch.workingHours.length; i++) {
+        let th=document.createElement('th');
+        th.innerHTML=Branch.workingHours[i];
+        th.appendChild(th);
+
+    }
+};
+headerFun();
+
