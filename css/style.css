@@ -54,6 +54,17 @@ main {
     list-style: disc;
 }
 
-main>ul {
-    display: inline;
+    /* main>ul {
+        display: inline;
+    } */
+table, th, tr{
+    border: 2px #0D0D0D  solid ;
+    width: max-content;
+}
+th,tfoot{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px;
+}
+table{
+    border-collapse: collapse;
 }
