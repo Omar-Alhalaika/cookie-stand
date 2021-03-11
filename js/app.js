@@ -89,14 +89,12 @@ Branch.prototype.render = function () {
         let th = document.createElement('th')
         let tr = document.createElement('tr');
         let td = document.createElement('td');
-        th.appendChild(tr);
         tr.appendChild(td);
-        table.appendChild(th);
         td.innerText = branchsName[i];
     for (let x = 0; x < this.PurchasedPerDay.length; x++) {
-            let tr = document.createElement('tr');
+            // let tr = document.createElement('tr');
             let td = document.createElement('td');
-            table.appendChild(tr);
+            // table.appendChild(tr);
             tr.appendChild(td);
             td.innerText = this.PurchasedPerDay[x];
     };
@@ -105,7 +103,8 @@ Branch.prototype.render = function () {
     totalPerBranchTh.appendChild(totalTd);
     table.appendChild(totalPerBranchTh);
     totalTd.innerText=this.totalSum;
-    
+    th.appendChild(tr);
+    table.appendChild(th);  
 }
 }
 
@@ -115,7 +114,7 @@ Branch.prototype.render = function () {
 
     headerFun();
     for (let i = 0; i < branchsName.length; i++) {
-        branchsName[i].re
+        seattle.render();
     };
     footerFun();    
 
