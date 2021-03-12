@@ -25,24 +25,24 @@ function Branch(branchName, minCustomer, maxCustomer, avgCookieSale) {
     // this.footerFun();
 };
 // ----------------------------------------------------- Seattle Branch -------------------------------------------------------------
-let seattle = new Branch('seattle', 23, 65, 6.3);
+let seattle = new Branch('Seattle', 23, 65, 6.3);
 // ----------------------------------------------------- Tokyo Branch -------------------------------------------------------------
-let tokyo = new Branch('tokyo', 3, 24, 1.2);
+let tokyo = new Branch('Tokyo', 3, 24, 1.2);
 // ----------------------------------------------------- Dubai Branch -------------------------------------------------------------
-let dubai = new Branch('dubai', 11, 38, 3.7);
+let dubai = new Branch('Dubai', 11, 38, 3.7);
 // ----------------------------------------------------- Paris Branch -------------------------------------------------------------
-let paris = new Branch('paris', 20, 38, 2.3);
+let paris = new Branch('Paris', 20, 38, 2.3);
 // ----------------------------------------------------- Lima Branch -------------------------------------------------------------
-let lima = new Branch('lima', 2, 16, 4.6);
+let lima = new Branch('Lima', 2, 16, 4.6);
 
 let branchsName = [seattle, tokyo, dubai, paris, lima];
 
 
-// Making table inside the main by ID inside the maen
+//------------------------------ Making table inside the main by ID inside the maen  ------------------------------
 let header = document.getElementById('table');
 let table = document.createElement('table');
 header.appendChild(table);
-// making a separate header Fun. & footer Fun. for the table to apply separation of concerns 
+//------------------------------ making a separate header Fun. & footer Fun. for the table to apply separation of concerns ------------------------------
 let headerFun = function () {
     let thead = document.createElement('thead');
     let thEmpty = document.createElement('th');
@@ -67,10 +67,10 @@ let footerFun = function () {
     tfooter.appendChild(tdTotals);
     tdTotals.innerText = 'Totals:';
     let dailyLocationsTotal = 0;
-    for (let i = 0; i < workingHours.length ; i++) {
+    for (let i = 0; i < workingHours.length; i++) {
         let hourlyTotal = 0;
         for (let x = 0; x < branchsName.length; x++) {
-            hourlyTotal +=branchsName[x].PurchasedPerDay[i];
+            hourlyTotal += branchsName[x].PurchasedPerDay[i];
             dailyLocationsTotal += hourlyTotal;
         }
         let td = document.createElement('td');
@@ -82,7 +82,7 @@ let footerFun = function () {
     totals.innerText = dailyLocationsTotal;
     table.appendChild(tfooter);
 };
-// Now moving to make the render Fun.
+//------------------------------ Now moving to make the render Fun. ------------------------------
 
 Branch.prototype.render = function () {
     let tr = document.createElement('tr');
@@ -106,5 +106,21 @@ for (let i = 0; i < branchsName.length; i++) {
 };
 footerFun();
 
+// ------------------------------  Adding NEW branchs   ------------------------------
 
+let form = document.getElementById('form');
+form.addEventListener('submit', newBranch())
+function newBranch(event) {
+    event.preventDefault();
+    let branchName = event.target.branchName.value;
+    console.log(branchName);
+    let maxCustomer = event.target.maxCustomer.value;
+    let minCustomer = event.target.minCustomer.value;
+    let avgCookieSale = event.target.avgCookieSale.value;
+    let newBranch = new Branch(branchName, minCustomer, maxCustomer, avgCookieSale);
+
+    newBranch();
+
+}
+newBranch();
 
