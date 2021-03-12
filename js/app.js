@@ -1,6 +1,5 @@
 'use strict'
 let workingHours = ['6:00 AM', '7:00 AM', '8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', ' 8:00 PM '];
-let branchsName = ['Seattle', 'Tokyo', 'Dubai', 'Paris', 'Lima'];
 function Branch(branchName, minCustomer, maxCustomer, avgCookieSale) {
     this.branchName = branchName;
     this.minCustomer = minCustomer;
@@ -35,6 +34,7 @@ let dubai = new Branch('dubai', 11, 38, 3.7);
 let paris = new Branch('paris', 20, 38, 2.3);
 // ----------------------------------------------------- Lima Branch -------------------------------------------------------------
 let lima = new Branch('lima', 2, 16, 4.6);
+let branchsName=['Seattle','Tokyo','Dubai','Paris','Lima'];
 
 // Making table inside the main by ID inside the maen
 let header = document.getElementById('table');
@@ -92,14 +92,14 @@ Branch.prototype.render = function () {
         th.appendChild(tr);
         tr.appendChild(td);
         table.appendChild(th);
-        td.innerText = branchsName[i];
-    for (let x = 0; x < this.PurchasedPerDay.length; x++) {
-            let tr = document.createElement('tr');
+        td.innerText =branchsName[i];
+    for (let x = 0; x < workingHours.length; x++) {
+            // let tr = document.createElement('tr');
             let td = document.createElement('td');
-            table.appendChild(tr);
-            tr.appendChild(td);
             td.innerText = this.PurchasedPerDay[x];
     };
+    tr.appendChild(td);
+    // table.appendChild(tr);
     let totalPerBranchTh=document.createElement('th');
     let totalTd=document.createElement('td');
     totalPerBranchTh.appendChild(totalTd);
@@ -114,9 +114,10 @@ Branch.prototype.render = function () {
 // seattle.render();
 
     headerFun();
-    for (let i = 0; i < branchsName.length; i++) {
-        branchsName[i].re
-    };
+    seattle.render();
+    // for (let i = 0; i < branchsName.length; i++) {
+    //     branchsName[i].render();
+    // };
     footerFun();    
 
 
