@@ -23,7 +23,6 @@ body {
     position: relative;
     float: left;
     z-index: 2;
-
 }
 
 a {
@@ -53,18 +52,69 @@ main {
     padding: 5px;
     list-style: disc;
 }
+form{
+    padding-left: 50px;
+    padding: right 10px;
+    padding: top 10px;
+    padding-bottom: 50px;
+    
 
-    /* main>ul {
+}
+::placeholder{
+    
+}
+
+fieldset {
+    border: darkgreen solid 2px;
+    border-radius: 20px;
+    padding-left: 30px;
+    padding: right 5px;
+    padding: top 10px;
+    padding-bottom: 10px;
+    font-family: cursive;
+    margin-right: 400px;
+    margin-left: 400px;
+
+}
+fieldset legend{
+    font-family: cursive;
+    font-weight: bolder;
+    padding: 20px;
+    border-radius: 50px;
+    background-color: #85E7F2;
+    margin-bottom: 10px;
+}
+fieldset button:last-child{
+    font-family: cursive;
+    border: darkgreen solid 2px;
+    font-weight: bolder;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 80px;
+
+}
+
+/* main>ul {
         display: inline;
     } */
-table, th, tr{
-    border: 2px #0D0D0D  solid ;
+
+table, th, tr, td {
+    border: 2px #0D0D0D solid;
     width: max-content;
+    text-align: center;
 }
-th,tfoot{
+
+th, tfoot, tr td:first-child, tr td:last-child {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 2px #0D0D0D solid;
     padding: 5px;
 }
-table{
+
+table {
     border-collapse: collapse;
 }
