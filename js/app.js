@@ -20,9 +20,6 @@ function Branch(branchName, minCustomer, maxCustomer, avgCookieSale) {
     };
     this.averagePurchased(this.customerPerHourGenerator, this.avgCookieSale);
 
-    // this.liCreator();
-    // this.headerFun();
-    // this.footerFun();
 };
 // ----------------------------------------------------- Seattle Branch -------------------------------------------------------------
 let seattle = new Branch('Seattle', 23, 65, 6.3);
@@ -38,7 +35,9 @@ let lima = new Branch('Lima', 2, 16, 4.6);
 let branchsName = [seattle, tokyo, dubai, paris, lima];
 
 
+
 //------------------------------ Making table inside the main by ID inside the maen  ------------------------------
+
 let header = document.getElementById('table');
 let table = document.createElement('table');
 header.appendChild(table);
@@ -105,6 +104,7 @@ for (let i = 0; i < branchsName.length; i++) {
     branchsName[i].render();
 };
 footerFun();
+
 
 // ------------------------------  Adding NEW branchs   ------------------------------
 
