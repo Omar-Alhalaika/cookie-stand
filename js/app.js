@@ -20,9 +20,6 @@ function Branch(branchName, minCustomer, maxCustomer, avgCookieSale) {
     };
     this.averagePurchased(this.customerPerHourGenerator, this.avgCookieSale);
 
-    // this.liCreator();
-    // this.headerFun();
-    // this.footerFun();
 };
 // ----------------------------------------------------- Seattle Branch -------------------------------------------------------------
 let seattle = new Branch('seattle', 23, 65, 6.3);
@@ -34,7 +31,9 @@ let dubai = new Branch('dubai', 11, 38, 3.7);
 let paris = new Branch('paris', 20, 38, 2.3);
 // ----------------------------------------------------- Lima Branch -------------------------------------------------------------
 let lima = new Branch('lima', 2, 16, 4.6);
-let branchsName=['Seattle','Tokyo','Dubai','Paris','Lima'];
+
+let branchsName = [seattle, tokyo, dubai, paris, lima];
+
 
 // Making table inside the main by ID inside the maen
 let header = document.getElementById('table');
@@ -61,64 +60,48 @@ let headerFun = function () {
 
 let footerFun = function () {
     let tfooter = document.createElement('tfoot');
-    let trTotals = document.createElement('tr');
     let tdTotals = document.createElement('td');
-    trTotals.appendChild(tdTotals);
-    tfooter.appendChild(trTotals);
-    table.appendChild(tfooter);
+    tfooter.appendChild(tdTotals);
     tdTotals.innerText = 'Totals:';
-    let dailyLocationTotal = 0;
-    for (let i = 0; i < workingHours.length + 1; i++) {
+    let dailyLocationsTotal = 0;
+    for (let i = 0; i < workingHours.length; i++) {
         let hourlyTotal = 0;
         for (let x = 0; x < branchsName.length; x++) {
-            hourlyTotal += branchsName[x];
-            dailyLocationTotal += hourlyTotal;
+            hourlyTotal += branchsName[x].PurchasedPerDay[i];
+            dailyLocationsTotal += hourlyTotal;
         }
-        let tfooter = document.createElement('tfoot');
-        let tr = document.createElement('tr');
         let td = document.createElement('td');
-        tr.appendChild(tfooter);
-        tr.appendChild(td);
-        td.innerText = hourlyTotal[i];
+        tfooter.appendChild(td);
+        td.innerText = hourlyTotal;
     }
+    let totals = document.createElement('td');
+    tfooter.appendChild(totals);
+    totals.innerText = dailyLocationsTotal;
+    table.appendChild(tfooter);
 };
 // Now moving to make the render Fun.
 
 Branch.prototype.render = function () {
-    for (let i = 0; i < branchsName.length; i++) {
-        let th = document.createElement('th')
-        let tr = document.createElement('tr');
-        let td = document.createElement('td');
-        th.appendChild(tr);
-        tr.appendChild(td);
-        table.appendChild(th);
-        td.innerText =branchsName[i];
-    for (let x = 0; x < workingHours.length; x++) {
-            // let tr = document.createElement('tr');
-            let td = document.createElement('td');
-            td.innerText = this.PurchasedPerDay[x];
-    };
+    let tr = document.createElement('tr');
+    let td = document.createElement('td');
     tr.appendChild(td);
-    // table.appendChild(tr);
-    let totalPerBranchTh=document.createElement('th');
-    let totalTd=document.createElement('td');
-    totalPerBranchTh.appendChild(totalTd);
-    table.appendChild(totalPerBranchTh);
-    totalTd.innerText=this.totalSum;
-    
-}
+    td.innerText = this.branchName;
+    for (let i = 0; i < workingHours.length; i++) {
+        let td = document.createElement('td');
+        tr.appendChild(td);
+        td.innerText = this.PurchasedPerDay[i];
+    };
+    let totalTd = document.createElement('td');
+    tr.appendChild(totalTd);
+    totalTd.innerText = this.totalSum;
+    table.appendChild(tr);
 }
 
-// headerFun();
-// footerFun();
-// seattle.render();
-
-    headerFun();
-    seattle.render();
-    // for (let i = 0; i < branchsName.length; i++) {
-    //     branchsName[i].render();
-    // };
-    footerFun();    
+headerFun();
+for (let i = 0; i < branchsName.length; i++) {
+    branchsName[i].render();
+};
+footerFun();
 
 
 
