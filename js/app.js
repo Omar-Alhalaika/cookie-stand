@@ -99,17 +99,10 @@ Branch.prototype.render = function () {
     table.appendChild(tr);
 }
 
-headerFun();
-for (let i = 0; i < branchsName.length; i++) {
-    branchsName[i].render();
-};
-footerFun();
-
-
 // ------------------------------  Adding NEW branchs   ------------------------------
 
 let form = document.getElementById('form');
-form.addEventListener('submit', newBranch())
+form.addEventListener('submit', newBranch);
 function newBranch(event) {
     event.preventDefault();
     let branchName = event.target.branchName.value;
@@ -118,9 +111,16 @@ function newBranch(event) {
     let minCustomer = event.target.minCustomer.value;
     let avgCookieSale = event.target.avgCookieSale.value;
     let newBranch = new Branch(branchName, minCustomer, maxCustomer, avgCookieSale);
-
-    newBranch();
-
+    console.log(newBranch);
+    branchsName.push(newBranch);
+    newBranch.render();
 }
-newBranch();
+
+// ------------------------------  Calling the FULL table   ------------------------------
+
+headerFun();
+for (let i = 0; i < branchsName.length; i++) {
+    branchsName[i].render();
+};
+footerFun();
 
